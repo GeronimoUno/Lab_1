@@ -1,7 +1,22 @@
 # TODO  Напишите функцию count_letters
+def count_letters(main_str):
+    dct = {}
+    lower_str = main_str.lower()
+    for i in lower_str:
+     if i.isalpha():
+         if i in dct:
+             dct[i] += 1
+         else:
+             dct[i] = 1
+    return dct
+
 
 # TODO Напишите функцию calculate_frequency
-
+def calculate_frequency(dct):
+    summary = sum(dct.values())
+    for v in dct.keys():
+        dct[v] /= summary
+    return dct
 
 main_str = """
 У лукоморья дуб зелёный;
@@ -38,22 +53,9 @@ main_str = """
 Под ним сидел, и кот учёный
 Свои мне сказки говорил.
 """
-symbols = []
-lower_str = main_str.lower()
-for symbol in lower_str:
-    if symbol.isalpha() is True:
-        symbols += symbol
-uniq_symbols = list(set(symbols))
+result_1 = count_letters(main_str)
+result_2 = calculate_frequency(result_1)
 
-dict = {}
-for i in uniq_symbols:
-    dict[i] = 0
-for item in dict.items():
-    for bukva in lower_str:
-        if bukva == item[0]:
-            item[1] += 1
-print(item)
-
-
-
+for a, b in result_2.items():
+    print(f"{a}: {b:.2f}")
 # TODO Распечатайте в столбик букву и её частоту в тексте
