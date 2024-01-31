@@ -12,7 +12,6 @@ BOOKS_DATABASE = [
 ]
 
 
-# TODO написать класс Book
 class Book:
     def __init__(self, id, name: str, pages: int):
         self.id = id
@@ -25,6 +24,7 @@ class Book:
     def __repr__(self):
         return f'Book(id_={self.id}, name={self.name!r}, pages={self.pages})'
 
+
 if __name__ == '__main__':
     # инициализируем список книг
     list_books = [
@@ -34,8 +34,3 @@ if __name__ == '__main__':
         print(book)  # проверяем метод __str__
 
     print(list_books)  # проверяем метод __repr__
-
-# Пример использования:
-book_1 = Book(id=1, name='test_name_1', pages=200)
-print(str(book_1))  # Вывод: Книга "test_name_1"
-print(repr(book_1))  # Вывод: Book(id_=1, name='test_name_1', pages=200)
